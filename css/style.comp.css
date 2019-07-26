@@ -3,7 +3,8 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  scroll-behavior: smooth; }
 
 html {
   box-sizing: border-box;
@@ -57,25 +58,22 @@ select {
         display: block; } }
     @media only screen and (max-width: 62.5em) {
       .logo__img {
-        height: 4rem; } }
+        height: 3rem; } }
 
 .container {
   background-color: #000;
   display: grid;
   grid-template-rows: 100vh repeat(7, min-content);
-  grid-template-columns: minmax(5rem, 1fr) repeat(4, minmax(min-content, 1fr)) minmax(5rem, 1fr); }
+  grid-template-columns: repeat(6, 1fr); }
   @media only screen and (max-width: 100em) {
     .container {
       grid-template-columns: minmax(5rem, 1fr) repeat(4, minmax(min-content, 2fr)) minmax(5rem, 1fr); } }
   @media only screen and (max-width: 75em) {
     .container {
-      grid-template-columns: 5rem repeat(4, minmax(min-content, 2fr)) 5rem; } }
+      grid-template-columns: 8vw repeat(4, minmax(min-content, 2fr)) 8vw; } }
   @media only screen and (max-width: 62.5em) {
     .container {
-      grid-template-columns: 5rem repeat(2, minmax(min-content, 2fr)) 5rem; } }
-  @media only screen and (max-width: 37.5em) {
-    .container {
-      grid-template-columns: 3rem repeat(2, minmax(min-content, 2fr)) 3rem; } }
+      grid-template-columns: 8vw repeat(2, minmax(min-content, 2fr)) 8vw; } }
   .container__rule {
     display: block;
     background-color: #181818;
@@ -103,15 +101,14 @@ select {
 .sidebar {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  padding: 5rem 2rem;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: min-content;
-  grid-row-gap: 11rem;
-  position: fixed;
-  z-index: 10; }
+  grid-template-columns: min-content; }
   .sidebar__main {
-    grid-row: 1 / 2; }
+    grid-row: 1 / 2;
+    position: fixed;
+    top: 4rem;
+    left: 2rem; }
     @media only screen and (max-width: 75em) {
       .sidebar__main {
         visibility: hidden;
@@ -123,23 +120,17 @@ select {
     grid-row: 2 / 3;
     display: flex;
     align-items: center;
-    cursor: pointer; }
+    cursor: pointer;
+    position: fixed;
+    top: 48%;
+    left: 2rem;
+    z-index: 1100; }
     @media only screen and (max-width: 75em) {
       .sidebar__menu {
-        position: fixed;
-        top: 5rem;
-        right: 5rem; } }
-    @media only screen and (max-width: 37.5em) {
-      .sidebar__menu {
-        right: 3rem; } }
+        left: 0;
+        padding: 0 calc(8vw / 2 - 8px); } }
     .sidebar__menu:hover .sidebar__menu__menu {
-      color: #ffff00; }
-    .sidebar__menu:hover .sidebar__menu__icon {
-      transform: rotate(90deg), translate3d(10px, 0, 0); }
-    .sidebar__menu:hover .sidebar__menu__icon::before {
-      transform: translate3d(-4px, 0, 0); }
-    .sidebar__menu:hover .sidebar__menu__icon::after {
-      transform: translate3d(-4px, 0, 0); }
+      color: #ffff00 !important; }
     .sidebar__menu__menu {
       color: #f9f7f6;
       text-decoration: none;
@@ -160,33 +151,36 @@ select {
       transition: all .2s;
       cursor: pointer;
       z-index: 2000; }
-      @media only screen and (max-width: 62.5em) {
+      @media only screen and (max-width: 75em) {
         .sidebar__menu__icon {
           width: 2rem; } }
-      .sidebar__menu__icon::before, .sidebar__menu__icon::after {
-        content: "";
+      .sidebar__menu__icon__one, .sidebar__menu__icon__two {
         background-color: #f9f7f6;
         width: 3rem;
         height: 2px;
         position: absolute; }
-        @media only screen and (max-width: 62.5em) {
-          .sidebar__menu__icon::before, .sidebar__menu__icon::after {
+        @media only screen and (max-width: 75em) {
+          .sidebar__menu__icon__one, .sidebar__menu__icon__two {
             width: 2rem; } }
-      .sidebar__menu__icon::before {
-        top: 1rem;
+      .sidebar__menu__icon__one {
+        top: .8rem;
         transition: all .2s; }
-        @media only screen and (max-width: 62.5em) {
-          .sidebar__menu__icon::before {
-            top: .8rem; } }
-      .sidebar__menu__icon::after {
-        bottom: 1rem;
+        @media only screen and (max-width: 75em) {
+          .sidebar__menu__icon__one {
+            top: .7rem; } }
+      .sidebar__menu__icon__two {
+        bottom: .8rem;
         transition: all .2s; }
-        @media only screen and (max-width: 62.5em) {
-          .sidebar__menu__icon::after {
-            bottom: .8rem; } }
+        @media only screen and (max-width: 75em) {
+          .sidebar__menu__icon__two {
+            bottom: .7rem; } }
   .sidebar__social {
     grid-row: 3 / 4;
-    align-self: end; }
+    align-self: end;
+    position: fixed;
+    bottom: 5rem;
+    left: 2rem;
+    z-index: 1100; }
     @media only screen and (max-width: 75em) {
       .sidebar__social {
         visibility: hidden;
@@ -310,11 +304,10 @@ select {
     background-color: transparent;
     color: #ffff00;
     border: solid 1px #181818;
-    position: relative;
-    z-index: 1; }
+    position: relative; }
     @media only screen and (max-width: 37.5em) {
       .btn--light {
-        background-color: #000; } }
+        background-color: rgba(0, 0, 0, 0.37); } }
     .btn--light:hover {
       color: #000;
       border: solid 1px #ffff00; }
@@ -391,7 +384,7 @@ select {
   grid-template-rows: repeat(3, min-content);
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 2rem;
-  align-content: center; }
+  align-self: center; }
   @media only screen and (max-width: 62.5em) {
     .home {
       grid-template-columns: repeat(2, 1fr);
@@ -399,8 +392,8 @@ select {
   @media only screen and (max-width: 37.5em) {
     .home {
       grid-template-rows: repeat(4, min-content);
-      padding: 10rem 0;
-      grid-row-gap: 5rem; } }
+      padding: 14rem 0 10rem 0;
+      grid-row-gap: 3vh; } }
   .home__para {
     grid-row: 3 / 4;
     grid-column: 4 / 5;
@@ -424,7 +417,9 @@ select {
     grid-row: 3 / 4;
     grid-column: 2 / 3;
     align-self: center;
-    justify-self: start; }
+    justify-self: start;
+    opacity: 0;
+    transform: translateX(20px); }
     @media only screen and (max-width: 62.5em) {
       .home__btn {
         grid-row: 3 / 4;
@@ -445,33 +440,12 @@ select {
     align-self: center;
     grid-row: 2 / 3;
     grid-column: 1 / 5;
-    z-index: 2; }
+    line-height: 1; }
     @media only screen and (max-width: 62.5em) {
       .home__h1 {
         grid-row: 2 / 3;
         grid-column: 1 / 3;
         align-self: center; } }
-  .home__img {
-    grid-row: 1 / 4;
-    grid-column: 3 / 5;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    padding-left: 2rem;
-    display: none; }
-    @media only screen and (max-width: 62.5em) {
-      .home__img {
-        grid-column: 2 / 3;
-        grid-row: 1 / 4; } }
-    @media only screen and (max-width: 50em) {
-      .home__img {
-        display: none; } }
-    .home__img__content {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      padding-left: 4rem; }
   .home__plus {
     font-family: sans-serif;
     color: #ffff00;
@@ -491,33 +465,26 @@ select {
     grid-column: 1 / 2; }
     @media only screen and (max-width: 37.5em) {
       .home__main {
-        margin-top: 5rem;
         grid-column: 1 / 3;
-        padding: 2rem 0; } }
+        padding: 0 0; } }
 
 .right {
   grid-column: 6 / 7;
   grid-row: 1 / 2;
   display: grid;
   grid-template-rows: repeat(3, minmax(min-content, 1fr));
-  grid-template-columns: max-content;
-  padding: 5rem 0;
-  position: fixed;
-  right: 0;
-  grid-row-gap: 28rem;
-  align-items: end;
-  justify-items: center; }
-  @media only screen and (max-width: 100em) {
-    .right {
-      padding: 5rem 2rem; } }
+  grid-template-columns: max-content; }
   .right__scroll {
     grid-row: 3 / 4;
     grid-row-gap: 4rem;
     display: grid;
     align-items: center;
-    cursor: pointer; }
-    .right__scroll:hover .right__scroll__arrow {
-      transform: rotate(90deg) translateX(1rem); }
+    cursor: pointer;
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    justify-self: end;
+    animation: float 2s linear infinite; }
     @media only screen and (max-width: 75em) {
       .right__scroll {
         display: none; } }
@@ -538,7 +505,10 @@ select {
     font-size: 1.5rem;
     font-weight: 500;
     transform: rotate(-90deg);
-    cursor: pointer; }
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    right: 1rem; }
     @media only screen and (max-width: 75em) {
       .right__hello {
         display: none; } }
@@ -550,9 +520,8 @@ select {
       transition: all 1s; }
   .right__ribbon {
     grid-row: 1 / 2;
-    justify-self: start;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 5rem;
     right: 0; }
     @media only screen and (max-width: 75em) {
       .right__ribbon {
@@ -1266,12 +1235,13 @@ select {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  z-index: -2001; }
+  z-index: -2001;
+  position: relative; }
   .hero-video__overlay {
     display: block;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.582));
+    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.767));
     position: absolute;
     top: 0;
     left: 0;
@@ -1280,3 +1250,104 @@ select {
     height: 100%;
     width: 100%;
     object-fit: cover; }
+
+.nav {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, minmax(min-content, 1fr));
+  visibility: hidden; }
+  .nav__main {
+    position: fixed;
+    top: 4rem;
+    left: 2rem;
+    z-index: 2; }
+    @media only screen and (max-width: 75em) {
+      .nav__main {
+        visibility: hidden;
+        opacity: 0; } }
+    .nav__main__logo {
+      height: auto;
+      max-width: 4vh;
+      opacity: 0; }
+  .nav__rule {
+    display: block;
+    background-color: #f9f7f6;
+    width: 0;
+    height: 100%;
+    grid-row: 1 / -1;
+    z-index: -1; }
+    .nav__rule::after {
+      display: block;
+      content: '';
+      width: 1px;
+      height: 100%;
+      background-color: #dfdfdf; }
+    .nav__rule__1 {
+      grid-column: 1 / 2;
+      z-index: 1; }
+    .nav__rule__2 {
+      grid-column: 2 / 3; }
+    .nav__rule__3 {
+      grid-column: 3 / 4; }
+    .nav__rule__4 {
+      grid-column: 4 / 5; }
+    .nav__rule__5 {
+      grid-column: 5 / 6; }
+      @media only screen and (max-width: 62.5em) {
+        .nav__rule__5 {
+          display: none; } }
+    .nav__rule__6 {
+      grid-column: 6 / 7; }
+      @media only screen and (max-width: 62.5em) {
+        .nav__rule__6 {
+          display: none; } }
+
+.navigation {
+  grid-column: 2 / 5;
+  grid-row: 2 / 3;
+  backface-visibility: hidden; }
+  .navigation__item {
+    list-style: none;
+    transform: translateX(-90%);
+    visibility: hidden;
+    opacity: 0; }
+  .navigation__link {
+    color: #000;
+    text-decoration: none;
+    font-size: 12rem;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1;
+    transition: all 1s; }
+    .navigation__link:hover {
+      color: #ffff00; }
+
+.dark {
+  color: #000; }
+
+.darkbg {
+  background-color: #000; }
+
+@keyframes float {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(2rem); }
+  100% {
+    transform: translateY(0); } }
+
+.full {
+  visibility: visible; }
+
+.height-down {
+  height: auto; }
+
+.hide {
+  visibility: hidden;
+  opacity: 0; }
