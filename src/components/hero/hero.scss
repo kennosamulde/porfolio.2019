@@ -1,0 +1,101 @@
+.hero {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--main-color);
+  padding: 150px 0;
+
+  @media (max-width: 1000px) {
+    justify-content: center;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 50px;
+
+    h1 {
+      font-size: 5vw;
+      line-height: 1.1;
+      text-align: left;
+      will-change: auto;
+      color: var(--dark-color);
+
+      @media (max-width: 600px) {
+        font-size: 40px;
+      }
+    }
+
+    span {
+      margin-top: 30px;
+      color: var(--dark-color);
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+  }
+
+  .scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    margin: 0 30px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    .arrow {
+      fill: var(--dark-color);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+    }
+
+    .circle {
+      height: 150px;
+      width: auto;
+      padding: 10px;
+      transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+      background: none;
+      animation: rotation 8s infinite linear;
+
+      & #Wise-Stone---Open {
+        fill: var(--dark-color);
+      }
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      40% {
+        opacity: 1;
+      }
+      80% {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}
