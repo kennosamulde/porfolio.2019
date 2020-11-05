@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import "./single-project.scss"
 import StateContext from "../../state-context"
 import { ReactComponent as Arrow } from "../../assets/iconmonstr-arrow-right-thin.svg"
@@ -6,6 +6,10 @@ import { ReactComponent as Arrow } from "../../assets/iconmonstr-arrow-right-thi
 const SingleProject = ({ match }) => {
   const projects = useContext(StateContext)
   const project = projects.find((project) => project.url === match.params.project)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="single-project">

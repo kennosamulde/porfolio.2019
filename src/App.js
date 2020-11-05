@@ -91,20 +91,20 @@ class App extends React.Component {
       },
       social: {
         id: 4,
-        name: "Social Media App",
-        url: "social-app",
-        title: "Social Media App",
+        name: "Our App",
+        url: "our-app",
+        title: "Our App - Social Media Web App",
         heroImage: "https://iili.io/3iC2CN.jpg",
         about: {
-          brief: "Desktop task app is actually a simple todo-list project which I intend to scale in the near future, hopefully with other fellow developers. Altho many todo app is already up in the market, I still want to create a todo-app that is very easy to use with simple clean UI.",
-          features: "Add task, Add category, Add list, Schedule, Add notes",
-          technology: "SASS, Vanilla JS",
+          brief: "Our App is just like any common apps today, it has follow capabilities, search for posts, login and sign up pages, live chat and people can create, edit or delete their posts. Bootstrap is used as framework for UI. The app is powered by back-end technologies such as, Node Js and Express Js.It has live chat and live search capabilities as well.",
+          features: "Live Chat, CRUD, Follow, Form Validations, Live Search",
+          technology: "React, Node Js, MongoDB Atlas, Express Js, Socket.io, Webpack, React Hooks, Heroku, Babel, Axios, Bootstrap",
         },
         featureImages: ["https://iili.io/3iqv5J.png", "https://iili.io/3iqOUg.png"],
         preview: {
-          description: "The app is not yet finished, but I want fellow developers who come visit my portfolio site take a look, and who knows, see the potential and collaborate with me to upscale the app in the future.",
+          description: "Our app is powered by Node js, Express and MongoDB atlas, almost a full-stack app. My back end skills are on the working knowledge level as of now, thus most of the functionalities are basic. The main goal of this app is not UI design but more on the technical side. I'll be working on its UI in the near future for the updated version. ",
           images: ["https://iili.io/3iqN0F.png", "https://iili.io/3iqwf1.png", "https://iili.io/3iqhiP.png", "https://iili.io/3iqXWB.png", "https://iili.io/3iqkJa.png"],
-          link: "https://kennosamulde.github.io/Task-Management-Desktop-App/",
+          link: "https://fullstack-js-app.herokuapp.com/",
         },
       },
     }
